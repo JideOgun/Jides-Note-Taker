@@ -1,5 +1,3 @@
-const router = require('express').Router();
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -73,9 +71,13 @@ const handleNoteSave = () => {
     title: noteTitle.value,
     text: noteText.value,
   };
-  saveNote(newNote).then(() => {
+  saveNote(newNote).then((response) => {
+    if(!response.ok) {
+      alert('Error: ' + response.statusText);
+    }
     getAndRenderNotes();
     renderActiveNote();
+    return response.json();
   });
 };
 
@@ -183,3 +185,5 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
+
+

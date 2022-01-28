@@ -4,16 +4,24 @@ const db = require('./Develop/db/db.json');
 const path = require('path');
 const fs = require('fs');
 
+
+
+// middleware for the front end files, css, and js
+app.use(express.static('public'));
 // for parsing incoming json data made from a POST request
 app.use(express.json());
 // for parsing application/x-www-wform-urlencoded (string or array data)
 app.use(express.urlencoded({ extended: true }));
-//
-app.use(express.static('public'));
+
 
 const PORT = process.env.PORT || 3001;
 
+//ADDING A WILCARD ROUTE I.E ROUTES THAT DO NOT EXIST
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './Develop/public/index.html'));
+});
 
+// Get route to retrieve info from json file
 app.get('/api/notes', (req, res) => {
     res.json(db);
 });
@@ -22,7 +30,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './Develop/public/index.html'));
 });
 
-
+// Post router to update json file
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
     req.body.id = db.length.toString();
@@ -60,6 +68,7 @@ if(!note.title || typeof note.title !== 'string') {
 if(!note.text || typeof note.text !== 'string') {
     return false;
 }
+return true;
 };
 
 app.listen(PORT, () => {
