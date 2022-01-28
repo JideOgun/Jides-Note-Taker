@@ -1,3 +1,5 @@
+const router = require('express').Router();
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
