@@ -1,18 +1,16 @@
-{
-  "notes": [
-    {
-      "title": "Test Title",
-      "text": "Test text"
-    },
-    {
-      "title": "English",
-      "text": "Adverbs",
-      "id": "1"
-    },
-    {
-      "title": "Math",
-      "text": "operations",
-      "id": "2"
-    }
-  ]
-}
+[
+  {
+    "title": "Test Title",
+    "text": "Test text"
+  },
+  {
+    "title": "Chemistry",
+    "text": "Atoms",
+    "id": "1"
+  },
+  {
+    "title": "Math",
+    "text": "Operations",
+    "id": "2"
+  }
+]
