@@ -81,6 +81,7 @@ const handleNoteSave = () => {
   }).then(postResponse => {
     console.log(postResponse);
     alert("You've just added a note");
+    window.location.reload();
   });
 };
 
@@ -96,11 +97,12 @@ const handleNoteDelete = (e) => {
     activeNote = {};
   }
 
-  deleteNote(noteId).then((response) => {
-    response.json();
+  deleteNote(noteId).then(() => {
+    
     alert('You deleted a note');
     getAndRenderNotes();
     renderActiveNote();
+    window.location.reload();
   });
 };
 

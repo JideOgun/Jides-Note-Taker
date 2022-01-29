@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const db = require('../../db/db.json');
+const fs = require('fs');
 
 
 const { validateNote, newNote, findbyId } = require('../../lib/notes');
@@ -34,17 +35,21 @@ router.post('/notes', (req, res) => {
     const note = newNote(req.body, db);
     res.json(note);
     }
+    
 });
 
 // Delete route
 router.delete(`/notes/:id`, (req, res) => {
+    const params = [req.params.id];
+    console.log(params);
+    // comment
+    var oldNotes = db;
+    const newNotes = oldNotes.filter((n) => n.id !== params[0] );
+    console.log(newNotes);
     
-   console.log(req.body);
-       res.json({
-        message: 'Deleted'
-        });
-    
-    
+    fs.writeFileSync('./db/db.json', JSON.stringify(newNotes));
+    res.json(newNotes); 
+    // res.send('delete');
 });
 
 
