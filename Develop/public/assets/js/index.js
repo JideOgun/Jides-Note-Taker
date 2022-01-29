@@ -72,12 +72,15 @@ const handleNoteSave = () => {
     text: noteText.value,
   };
   saveNote(newNote).then((response) => {
-    if(!response.ok) {
-      alert('Error: ' + response.statusText);
+    if(response.ok) {
+     return response.json();
     }
+    alert('Error: ' + response.statusText);
     getAndRenderNotes();
-    renderActiveNote();
-    return response.json();
+    renderActiveNote(); 
+  }).then(postResponse => {
+    console.log(postResponse);
+    alert("You've just added a note");
   });
 };
 
