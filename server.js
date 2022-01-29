@@ -10,10 +10,12 @@ const htmlRoutes = require('./routes/htmlRoutes/');
 
 // middleware for the front end files, css, and js
 app.use(express.static('public'));
-// for parsing incoming json data made from a POST request
-app.use(express.json());
+
 // for parsing application/x-www-wform-urlencoded (string or array data)
 app.use(express.urlencoded({ extended: true }));
+
+// for parsing incoming json data made from a POST request
+app.use(express.json());
 
 
 app.use('/api', apiRoutes);
@@ -25,6 +27,8 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`API server is now on ${PORT}!`);
 });
+
+const db = require('./db/db.json');
 
 
 
