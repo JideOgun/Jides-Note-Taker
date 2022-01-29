@@ -96,7 +96,9 @@ const handleNoteDelete = (e) => {
     activeNote = {};
   }
 
-  deleteNote(noteId).then(() => {
+  deleteNote(noteId).then((response) => {
+    response.json();
+    alert('You deleted a note');
     getAndRenderNotes();
     renderActiveNote();
   });

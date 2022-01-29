@@ -2,11 +2,23 @@ const router = require('express').Router();
 const db = require('../../db/db.json');
 
 
-const { validateNote, newNote } = require('../../lib/notes');
+const { validateNote, newNote, findbyId } = require('../../lib/notes');
 
 // Get route to retrieve info from json file
 router.get('/notes', (req, res) => {
     res.json(db);
+});
+
+//Get route to retrieve specific info
+router.get('/notes/:id', (req, res) => {
+    const params = [req.params.id];
+    const result = findById(req.params.id, db);
+    console.log(result);
+    if(result) {
+        res.json(result);
+    } else {
+        res.send(404);
+    }
 });
 
 
@@ -22,6 +34,17 @@ router.post('/notes', (req, res) => {
     const note = newNote(req.body, db);
     res.json(note);
     }
+});
+
+// Delete route
+router.delete(`/notes/:id`, (req, res) => {
+    
+   console.log(req.body);
+       res.json({
+        message: 'Deleted'
+        });
+    
+    
 });
 
 
