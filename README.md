@@ -49,6 +49,8 @@
 ## Walkthrough Video
    * [Walkthrough Video](https://youtu.be/zPBeBrSU8F0)
    * [Heroku](https://nameless-basin-39461.herokuapp.com/notes)
+   ![mock up](public\assets\images\notetaker.jpg)
+
 ---
 ## Questions
 For any questions 
