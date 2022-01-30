@@ -47,7 +47,7 @@
 ---
 
 ## Walkthrough Video
-   * [Walkthrough Video](https://youtu.be/T55W5663sNM)
+   * [Walkthrough Video](https://youtu.be/zPBeBrSU8F0)
    * [Heroku](https://nameless-basin-39461.herokuapp.com/notes)
 ---
 ## Questions
