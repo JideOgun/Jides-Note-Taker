@@ -19,7 +19,14 @@
  
 
    ### Note taker functionality
-   When the user loads the app. The User can add notes, delete added notes.
+   When the user loads the app. 
+   The User is presented with the landing page with a link to the notes page.
+   When user clicks on the notes page, then user is presented with page with exisiting notes listed in the left hand.
+   If no previous notes, "No Notes Saved" is presented to the user.
+   When user adds a new note title, and new note text, then the save icon appears at the right hand corner of the page.
+   When user clicks save icon then new note is saved to the list on the left hand side of the page.
+   When user clicks on an exisiting note, then the clicked note appears in the right hand column.
+   When user cicks on the write icon in the navigation at the top of the page then user is presented with empty fields to write a new note title and note text. 
    If the user types in characters after the url /notes. The wild card feature page redirects to the home page.
    
    
