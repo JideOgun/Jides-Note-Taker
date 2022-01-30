@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const db = require('../../db/db.json');
+var db = require('../../db/db.json');
 const fs = require('fs');
 
 
@@ -7,6 +7,7 @@ const { validateNote, newNote, findbyId } = require('../../lib/notes');
 
 // Get route to retrieve info from json file
 router.get('/notes', (req, res) => {
+    console.log(db);
     res.json(db);
 });
 
@@ -40,16 +41,14 @@ router.post('/notes', (req, res) => {
 
 // Delete route
 router.delete(`/notes/:id`, (req, res) => {
-    const params = [req.params.id];
-    console.log(params);
-    // comment
+  
     var oldNotes = db;
     const newNotes = oldNotes.filter((n) => n.id !== req.params.id );
     console.log(newNotes);
     
     fs.writeFileSync('./db/db.json', JSON.stringify(newNotes));
+    db = newNotes;
     res.json(newNotes); 
-    // res.send('delete');
 });
 
 
