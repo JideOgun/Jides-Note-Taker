@@ -44,7 +44,7 @@ router.delete(`/notes/:id`, (req, res) => {
     console.log(params);
     // comment
     var oldNotes = db;
-    const newNotes = oldNotes.filter((n) => n.id !== params[0] );
+    const newNotes = oldNotes.filter((n) => n.id !== req.params.id );
     console.log(newNotes);
     
     fs.writeFileSync('./db/db.json', JSON.stringify(newNotes));
@@ -54,3 +54,4 @@ router.delete(`/notes/:id`, (req, res) => {
 
 
 module.exports = router;
+
